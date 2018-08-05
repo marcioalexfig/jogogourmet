@@ -8,41 +8,6 @@ public class Doce extends Prato{
 	
 	private Doce() {}
 	
-	@Override
-	public boolean isFimLista2() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isFim() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void toLista1() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void addLista1() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void addLista2() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void showPratoPrincipal() {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	@Override
 	public String toString() {

@@ -11,23 +11,39 @@ import java.util.Scanner;
 public class Jogo {
 
 	public static void main(String[] args) {
-		
-		do {
-			int prato = escolherPrato();
-			
-			Prato objPrato = PratoFactory.getPrato(prato);
-			
-			if (objPrato.getTipo() == 1 ) {
-				escolheuMassa(objPrato);
-			} else {
-				escolheuDoce(objPrato);
-			}
-		} while(true);
-			
-		
-		
-		//System.out.println(  (PratoFactory.getPrato(prato)).toString()  );
-
+		try {
+			do {
+				int prato = escolherPrato();
+				
+				Prato objPrato = PratoFactory.getPrato(prato);
+				
+				if (objPrato.getTipo() == 1 ) {
+					escolheuMassa(objPrato);
+					System.out.println("Continuar? (S/N)");
+					Scanner scan = new Scanner(System.in);
+					String continuar = scan.nextLine();
+					if (continuar.toUpperCase().equals("S")) {
+						continue;
+					} else {
+						break;
+					}
+				} else {
+					escolheuDoce(objPrato);
+					System.out.println("Continuar? (S/N)");
+					Scanner scan = new Scanner(System.in);
+					String continuar = scan.nextLine();
+					if (continuar.toUpperCase().equals("S")) {
+						continue;
+					} else {
+						break;
+					}
+				}
+			} while(true);
+		} catch (Exception e) {
+			System.out.println("Nossa, que vergonha, algo deu errado! Vou fechar o programa, mas pode abrir novamente, ok? :)");
+			Scanner scan = new Scanner(System.in);
+			String continuar = scan.nextLine();
+		}
 	}
 	
 	private static int escolherPrato() {
@@ -81,9 +97,6 @@ public class Jogo {
 				System.out.println("Digite apenas 's' ou 'n'!");
 			}
 			
-			//teste
-			System.out.println("lista1:"+objPrato.getLista1().toString());
-			System.out.println("lista2:"+objPrato.getLista2().toString());
 		} else {
 			int indice = 0;
 			for( String p : objPrato.getLista2()) {
